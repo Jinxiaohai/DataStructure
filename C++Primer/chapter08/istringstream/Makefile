@@ -1,0 +1,38 @@
+# The file was created by xiaohai to compile cpp file.
+# xiaohaijin@outlook.com
+
+# command and command parameters
+CXX := g++
+CXXFLAGS := -Wall -g -O3
+
+# define some variables of directory
+PWD := $(shell pwd)
+SRC := $(PWD)/src
+OBJ := $(PWD)/obj
+BIN := $(PWD)/bin
+INC := $(PWD)/include
+SAM := $(PWD)/samples
+
+vpath %.h    $(INC)
+vpath %.cpp  $(SRC)
+vpath %.o    $(OBJ)
+
+INCDIR   = -I$(INC)
+SOURCE  := $(notdir $(wildcard $(SRC)/*.cpp))
+OBJECT  := $(patsubst %.cpp,%.o,$(SOURCE))
+OBJECTS  := $(patsubst %.cpp,$(OBJ)/%.o,$(SOURCE))
+
+EXE = istringstream.exe
+all:$(EXE)
+
+$(EXE):$(OBJECT)
+	@$(CXX) $(CXXFLAGS) -o $(BIN)/$(EXE) $(OBJECTS) $(INCDIR)
+	@echo -e "\033[7;31m Compile done. \033[0m"
+
+$(OBJECT):%.o:%.cpp
+	@$(CXX) -c $< -o $(OBJ)/$@ $(INCDIR)
+
+.PHONY:clean
+clean:
+	@$(RM) $(OBJECTS) $(BIN)/$(EXE)
+	@echo -e "\033[7;31m Clean done. \033[0m"

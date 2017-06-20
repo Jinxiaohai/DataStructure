@@ -33,12 +33,14 @@ void quickSort(T a[], int leftEnd, int rightEnd)
       do
       {// find >= element on left side
          leftCursor++;
-      } while (a[leftCursor] < pivot);
+      }
+      while (a[leftCursor] < pivot);
 
       do
       {// find <= element on right side
          rightCursor--;
-      } while (a[rightCursor] > pivot);
+      }
+      while (a[rightCursor] > pivot);
 
       if (leftCursor >= rightCursor) break;  // swap pair not found
       swap(a[leftCursor], a[rightCursor]);

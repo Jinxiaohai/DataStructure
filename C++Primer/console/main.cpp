@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
   Warning<string> warning;
   Prompt<string> prompt;
 
-  error(cout) << "sAL;DJFLS;ADJF;LSKJDF;LKASJDFL;JASL;DKF" << error.end() << endl;
+  prompt(cout) << "G" << prompt.end() << endl;
+
   return 0;
 }

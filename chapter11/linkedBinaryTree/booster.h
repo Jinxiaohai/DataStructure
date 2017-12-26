@@ -2,21 +2,20 @@
 #define BOOSTER_H
 
 #include <iostream>
-using namespace std;
 
 struct booster
 {
-  /// 落叶
   int degradeToLeaf;
-  int degradeToParent;
+  int degradeFromParent;
   bool boosterHere;
 
   void output(ostream& out) const
   {
-    out << boosterHere << "  " << degradeToLeaf << "  " << degradeToParent << "  ";
+    out << boosterHere << "   " << degradeToLeaf << "   "
+        << degradeFromParent << "  ";
   }
-};
 
+};
 ostream& operator<<(ostream& out, booster x)
 {
   x.output(out);
